@@ -1,0 +1,12 @@
+<div (click)="onClick()" class="image-input" [class.titled]="showTitle">
+    <input (change)="onFileChange($event)" #file type="file">
+    <div class="image">
+        <img [src]="url || '/assets/img/placeholder.png'" alt="Image">
+    </div>
+    <div *ngIf="showTitle" class="title">
+        <p>{{ title }}</p>
+    </div>
+    <button *ngIf="url" (click)="removePicture(); $event.stopPropagation();" mat-icon-button color="warn">
+        <ion-icon name="trash"></ion-icon>
+    </button>
+</div>

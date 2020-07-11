@@ -1,0 +1,126 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+
+            <mat-card>
+                <mat-card-content>
+
+                    <form [formGroup]="form" (ngSubmit)="save()">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="subheader">Precificação</div>
+                            </div>
+
+                            <div class="col-md-4 col-lg-2">
+                                <mat-form-field tooltiped [tooltipText]="getDescription(enum.PRICE_PER_KM)">
+                                    <mat-label>Valor por Km</mat-label>
+                                    <input currencyMask matInput [formControlName]="enum.PRICE_PER_KM"
+                                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" placeholder=" Preço
+                                        por Km" type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <div class="subheader">Vistoria</div>
+                            </div>
+
+                            <div class="col-md-4 col-lg-2">
+                                <mat-form-field tooltiped [tooltipText]="getDescription(enum.MIN_INSPECTION_PICTURES)">
+                                    <mat-label>Mínimo de fotos</mat-label>
+                                    <input matInput [formControlName]="enum.MIN_INSPECTION_PICTURES" type="text">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-4 col-lg-2">
+                                <mat-form-field tooltiped [tooltipText]="getDescription(enum.MAX_INSPECTION_PICTURES)">
+                                    <mat-label>Máximo de fotos</mat-label>
+                                    <input matInput [formControlName]="enum.MAX_INSPECTION_PICTURES" type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <div class="subheader">Temporização</div>
+                            </div>
+
+                            <div class="col-md-4 col-lg-2">
+                                <mat-form-field tooltiped [tooltipText]="getDescription(enum.RETRY_DISTRIBUTION_TIME)">
+                                    <mat-label>Tentar distribuição novamente (min)</mat-label>
+                                    <input matInput [formControlName]="enum.RETRY_DISTRIBUTION_TIME" type="text">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4 col-lg-2">
+                                <mat-form-field tooltiped
+                                    [tooltipText]="getDescription(enum.CHECK_FOR_LOCATION_UPDATE_TIME)">
+                                    <mat-label>Verificar localização do tático (min)</mat-label>
+                                    <input matInput [formControlName]="enum.CHECK_FOR_LOCATION_UPDATE_TIME" type="text">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4 col-lg-2">
+                                <mat-form-field tooltiped
+                                    [tooltipText]="getDescription(enum.CHECK_TACTICAL_RESPONSE_TIME)">
+                                    <mat-label>Verificar resposta do tático a chamado (min)</mat-label>
+                                    <input matInput [formControlName]="enum.CHECK_TACTICAL_RESPONSE_TIME" type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <div class="subheader">Roteamento</div>
+                            </div>
+
+                            <div class="col-md-4 col-lg-2">
+                                <mat-form-field tooltiped
+                                    [tooltipText]="getDescription(enum.MAX_DISTRIBUTION_RETRY_TIMES)">
+                                    <mat-label>Tentativas de distribuição de chamado</mat-label>
+                                    <input matInput [formControlName]="enum.MAX_DISTRIBUTION_RETRY_TIMES" type="text">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-4 col-lg-2">
+                                <mat-form-field tooltiped [tooltipText]="getDescription(enum.MAX_DISTANCE)">
+                                    <mat-label>Distância máxima inicial (km)</mat-label>
+                                    <input matInput [formControlName]="enum.MAX_DISTANCE" type="text">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-4 col-lg-2">
+                                <mat-form-field tooltiped [tooltipText]="getDescription(enum.DISTANCE_INCREASE_RATIO)">
+                                    <mat-label>Valor incrementado na distância por tentativa</mat-label>
+                                    <input matInput [formControlName]="enum.DISTANCE_INCREASE_RATIO" type="text">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-4 col-lg-2">
+                                <mat-form-field tooltiped [tooltipText]="getDescription(enum.MAX_INCREASED_DISTANCE)">
+                                    <mat-label>Distância máxima final (km)</mat-label>
+                                    <input matInput [formControlName]="enum.MAX_INCREASED_DISTANCE" type="text">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-4 col-lg-2">
+                                <mat-form-field tooltiped [tooltipText]="getDescription(enum.MAX_DISTANCE_CHECKIN)">
+                                    <mat-label>Distância máxima do local (m)</mat-label>
+                                    <input matInput [formControlName]="enum.MAX_DISTANCE_CHECKIN" type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-12 text-right">
+                                <button [disabled]="!form.valid" type="submit" color="primary"
+                                    mat-raised-button>Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+    </div>
+</div>

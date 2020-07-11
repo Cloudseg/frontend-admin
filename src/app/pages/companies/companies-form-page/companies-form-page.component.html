@@ -1,0 +1,128 @@
+<div class="row mb-4">
+    <div class="col-12">
+        <button routerLink="/companies" mat-button>
+            <ion-icon name="arrow-back"></ion-icon>
+            Voltar
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <mat-card class="padded">
+                <mat-card-title>
+                    Cadastro de Empresa
+                </mat-card-title>
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="subtitle">Dados da Empresa</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <mat-form-field>
+                                <mat-label>Valor Cobrado</mat-label>
+                                <input currencyMask matInput formControlName="price"
+                                    [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                                    placeholder="Valor Geral" type="text">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-3">
+                            <mat-form-field>
+                                <mat-label>CNPJ</mat-label>
+                                <input matInput formControlName="cnpj" placeholder="CNPJ" type="text"
+                                    mask="00.000.000/0000-00">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-3">
+                            <mat-form-field>
+                                <mat-label>Razão Social</mat-label>
+                                <input matInput formControlName="corporate_name" placeholder="Razão Social" type="text">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-3">
+                            <mat-form-field>
+                                <mat-label>Nome Fantasia</mat-label>
+                                <input matInput formControlName="trading_name" placeholder="Nome Fantasia" type="text">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-3">
+                            <mat-form-field>
+                                <mat-label>Telefone Primário</mat-label>
+                                <input matInput type="text" formControlName="primary_phone" placeholder="Telefone"
+                                    [mask]="customMasks.TELEPHONE" phoneMaskInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-3">
+                            <mat-form-field>
+                                <mat-label>Telefone Secundário</mat-label>
+                                <input matInput type="text" formControlName="secondary_phone"
+                                    placeholder="Telefone Secundário" [mask]="customMasks.TELEPHONE" phoneMaskInput>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div *ngIf="this.form.get('user')" formGroupName="user" class="row">
+                        <div class="col-12">
+                            <div class="subtitle">
+                                Dados do usuário administrador
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <mat-form-field>
+                                <mat-label>Nome</mat-label>
+                                <input matInput formControlName="name" placeholder="E-mail" type="email">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-3">
+                            <mat-form-field>
+                                <mat-label>E-mail</mat-label>
+                                <input matInput formControlName="email" placeholder="E-mail" type="email">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-2">
+                            <mat-form-field>
+                                <mat-label>Senha</mat-label>
+                                <input matInput formControlName="password" placeholder="Confirmar senha"
+                                    type="password">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-2">
+                            <mat-form-field>
+                                <mat-label>Confirmar senha</mat-label>
+                                <input matInput formControlName="password_confirmation" placeholder="Confirmar senha"
+                                    type="password">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="subtitle">Endereço</div>
+                            <app-address-form [formGroup]="form"></app-address-form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="col-12">
+                                <div class="subtitle">
+                                    Informações importantes
+                                </div>
+                            </div>
+                            <app-company-informations [control]="form.get('infos')"></app-company-informations>
+                        </div>
+                        <div class="col-6">
+                            <div class="image-header">Logotipo</div>
+                            <app-image-input [showTitle]="false" formControlName="logo"></app-image-input>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-footer>
+                    <button type="submit" [disabled]="!form.valid || saving" color="primary" mat-raised-button>
+                        Salvar
+                    </button>
+                </mat-card-footer>
+            </mat-card>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="login-component">
+    <form [formGroup]="form" (ngSubmit)="login()">
+        <mat-card>
+            <mat-card-title>
+                <p>Login</p>
+                <span>Admin</span>
+            </mat-card-title>
+            <mat-card-content>
+                <mat-form-field>
+                    <mat-label>E-mail</mat-label>
+                    <input matInput formControlName="email" placeholder="E-mail" type="text">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Senha</mat-label>
+                    <input matInput formControlName="password" placeholder="Senha" type="password">
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-footer>
+                <button type="submit" [disabled]="!form.valid" mat-button>Login</button>
+            </mat-card-footer>
+        </mat-card>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+<div class="company-informations">
+    <input #fileInput (change)="onFileChange($event)" type="file" style="display: none;">
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col-5">
+                <mat-form-field>
+                    <mat-label>Título</mat-label>
+                    <input matInput formControlName="title" type="text">
+                </mat-form-field>
+            </div>
+            <div class="col-5">
+                <mat-form-field>
+                    <mat-label>Subtítulo</mat-label>
+                    <input matInput formControlName="subtitle" type="text">
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <button (click)="add()" [disabled]="!form.valid" mat-icon-button>
+                    <ion-icon name="add"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-12">
+            <ul>
+                <li *ngFor="let info of informations; let i = index;">
+                    <div class="information">
+                        <img [src]="info.picture_url" alt="Info" class="information__image">
+                        <div class="information__texts">
+                            <p class="title">
+                                {{ info.title }}
+                            </p>
+                            <p *ngIf="info.subtitle" class="subtitle">
+                                {{ info.subtitle }}
+                            </p>
+                        </div>
+                    </div>
+                    <button (click)="remove(i)" mat-icon-button color="warn">
+                        <ion-icon name="trash"></ion-icon>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

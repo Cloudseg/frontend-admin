@@ -1,0 +1,46 @@
+<form *ngIf="form" [formGroup]="form">
+    <div class="row address-form">
+        <div class="col-2">
+            <mat-form-field>
+                <mat-label>CEP</mat-label>
+                <input (blur)="onCepBlur($event)" matInput formControlName="zip_code" type="text" placeholder="CEP"
+                    mask="00.000-000">
+            </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field>
+                <mat-label>Rua</mat-label>
+                <input matInput formControlName="address" placeholder="Rua" type="text">
+            </mat-form-field>
+        </div>
+        <div class="col-2">
+            <mat-form-field>
+                <mat-label>Número</mat-label>
+                <input #addressNumberInput matInput formControlName="number" placeholder="Número" type="text">
+            </mat-form-field>
+        </div>
+        <div class="col-2">
+            <mat-form-field>
+                <mat-label>Bairro</mat-label>
+                <input matInput formControlName="neighborhood" placeholder="Bairro" type="text">
+            </mat-form-field>
+        </div>
+        <div class="col-3">
+            <mat-form-field>
+                <mat-label>Complemento</mat-label>
+                <input matInput formControlName="complement" placeholder="Complemento" type="text">
+            </mat-form-field>
+        </div>
+        <div class="col-3">
+            <mat-form-field>
+                <input type="text" placeholder="Cidade" matInput [formControl]="form.get('city')"
+                    [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="cityDisplay">
+                    <mat-option *ngFor="let city of cities$ | async" [value]="city">
+                        {{ cityDisplay(city) }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+    </div>
+</form>

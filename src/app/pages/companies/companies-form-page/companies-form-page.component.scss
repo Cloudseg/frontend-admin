@@ -1,0 +1,25 @@
+mat-card {
+  > * {
+    padding: 12px;
+  }
+
+  mat-card-title {
+    font-size: 1.2em;
+  }
+
+  mat-card-footer {
+    text-align: right;
+  }
+
+  .subtitle {
+    margin: 12px 0;
+    font-weight: 500;
+    color: var(--color-tertiary);
+  }
+}
+
+.image-header {
+  margin: 12px 0;
+  font-weight: 500;
+  color: var(--color-tertiary);
+}

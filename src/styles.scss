@@ -1,0 +1,105 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap-grid.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: var(--font-family), sans-serif;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-center {
+  text-align: center;
+}
+
+:root {
+  --font-family: "Montserrat";
+
+  --color-primary: #0ae1bb;
+  --color-primary-rgb: 10, 225, 187;
+  --color-primary-contrast: #fff;
+  --color-primary-contrast-rgb: 255, 255, 255;
+  --color-primary-shade: #09c6a5;
+  --color-primary-tint: #23e4c2;
+
+  --color-secondary: #f52d56;
+  --color-secondary-rgb: 245, 45, 86;
+  --color-secondary-contrast: #ffffff;
+  --color-secondary-contrast-rgb: 255, 255, 255;
+  --color-secondary-shade: #d8284c;
+  --color-secondary-tint: #f64267;
+
+  --color-tertiary: #383a3e;
+  --color-tertiary-rgb: 56, 58, 62;
+  --color-tertiary-contrast: #ffffff;
+  --color-tertiary-contrast-rgb: 255, 255, 255;
+  --color-tertiary-shade: #313337;
+  --color-tertiary-tint: #4c4e51;
+}
+
+mat-card.padded {
+  mat-card-title,
+  mat-card-content,
+  mat-card-footer {
+    padding: 12px;
+  }
+
+  mat-card-title {
+    font-size: 1.2em;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+table[mat-table] {
+  width: 100%;
+}
+
+.l8-toastr {
+  font-size: 0.9em;
+}
+
+.no-data-row {
+  margin: 15px 0;
+  text-align: center;
+  color: #555;
+  font-weight: 300;
+}
+
+.toast-container.toast-bottom-left {
+  left: 250px !important;
+}
+
+.subheader {
+  margin: 10px 0 15px 0;
+  font-weight: 500;
+  color: darkslategrey;
+}
+
+input[currencyMask] {
+  text-align: left !important;
+}
+
+.mat-tooltip {
+  font-size: 0.8em;
+}
+
+.row.table-filter {
+  justify-content: flex-end;
+}

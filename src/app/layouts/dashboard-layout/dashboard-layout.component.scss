@@ -1,0 +1,50 @@
+dashboard-layout-compontent {
+  position: relative;
+}
+
+mat-sidenav-container {
+  height: 100vh;
+
+  mat-sidenav {
+    ul {
+      width: 220px;
+      height: 100%;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      background: linear-gradient(180deg, var(--color-tertiary), var(--color-tertiary-shade));
+
+      li.menu {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        font-size: 0.9em;
+        padding: 0 16px;
+        outline: 0;
+        color: #fff;
+        cursor: pointer;
+
+        &.active {
+          background: rgba(10, 225, 187, 0.3);
+          font-weight: 500;
+        }
+
+        ion-icon {
+          margin-right: 12px;
+          font-size: 1.3em;
+          --ionicon-stroke-width: 35px;
+        }
+      }
+    }
+  }
+
+  mat-sidenav-content {
+    background: #f9f9f9;
+    padding: 32px;
+    position: relative;
+  }
+}
+
+main.content {
+  position: relative;
+}

@@ -1,0 +1,20 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+        <ul>
+            <li *ngFor="let page of pages" [routerLink]="[page.url]" routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }" class="menu">
+                <ion-icon [name]="page.icon"></ion-icon>
+                {{ page.title }}
+            </li>
+            <li (click)="logout()" class="menu">
+                <ion-icon name="log-out-sharp"></ion-icon>
+                Sair
+            </li>
+        </ul>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <main class="content">
+            <router-outlet #outlet="outlet"></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>
